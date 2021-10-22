@@ -115,6 +115,7 @@ two pointer solution:
         }
     }
     
+# Valid Palindrome
 680. Valid Palindrome II (Easy)
 
 [Leetcode](https://leetcode.com/problems/valid-palindrome-ii/description/)
@@ -139,9 +140,54 @@ two pointer solution:
         return true;
     }
 
+# Merge Sorted Array
 88. Merge Sorted Array (Easy)
 
 [Leetcode](https://leetcode.com/problems/merge-sorted-array/description/)
 
+    class Solution {
+        public void merge(int[] nums1, int m, int[] nums2, int n) {
+             int i = nums1.length ;
+
+            while (n > 0) {
+                if (m > 0 && nums1[m-1] > nums2[n-1]) {
+                    nums1[--i] = nums1[--m]; 
+                    //替代swap，参考官方题解“逆向双指针解法”的公式
+                }else{
+                    nums1[--i] = nums2[--n]; 
+                    //替代swap，参考官方题解“逆向双指针解法”的公式
+                }
+
+            }
+        }
+
+    }
+    
+# Linked List Cycle
+141. Linked List Cycle (Easy)
 
 
+[Leetcode](https://leetcode-cn.com/problems/linked-list-cycle/description/)
+
+JAVA solution:
+    public class Solution {
+        public boolean hasCycle(ListNode head) {
+            ListNode fast = head;
+            ListNode slow = head;
+            // 空链表、单节点链表一定不会有环
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next; // 快指针，一次移动两步
+                slow = slow.next;      // 慢指针，一次移动一步
+                if (fast == slow) {   // 快慢指针相遇，表明有环
+                    return true;
+                }
+            }
+            return false; // 正常走到链表末尾，表明没有环
+        }
+    }
+    
+# Longest Word in Dictionary through Deleting
+524. Longest Word in Dictionary through Deleting
+
+
+[Leetcode](https://leetcode-cn.com/problems/linked-list-cycle/description/)
