@@ -169,25 +169,27 @@ two pointer solution:
 
 [Leetcode](https://leetcode-cn.com/problems/linked-list-cycle/description/)
 
-JAVA solution:
-    public class Solution {
-        public boolean hasCycle(ListNode head) {
-            ListNode fast = head;
-            ListNode slow = head;
-            // 空链表、单节点链表一定不会有环
-            while (fast != null && fast.next != null) {
-                fast = fast.next.next; // 快指针，一次移动两步
-                slow = slow.next;      // 慢指针，一次移动一步
-                if (fast == slow) {   // 快慢指针相遇，表明有环
-                    return true;
+    JAVA solution:
+        public class Solution {
+            public boolean hasCycle(ListNode head) {
+                ListNode fast = head;
+                ListNode slow = head;
+                // 空链表、单节点链表一定不会有环
+                while (fast != null && fast.next != null) {
+                    fast = fast.next.next; // 快指针，一次移动两步
+                    slow = slow.next;      // 慢指针，一次移动一步
+                    if (fast == slow) {   // 快慢指针相遇，表明有环
+                        return true;
+                    }
                 }
+                return false; // 正常走到链表末尾，表明没有环
             }
-            return false; // 正常走到链表末尾，表明没有环
         }
-    }
     
 # Longest Word in Dictionary through Deleting
 524. Longest Word in Dictionary through Deleting
 
 
 [Leetcode](https://leetcode-cn.com/problems/linked-list-cycle/description/)
+
+
