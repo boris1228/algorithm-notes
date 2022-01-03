@@ -72,4 +72,50 @@ Binary Search
             }
         }
 
+method 2: only search for even index:
+
+        class Solution {
+            public int singleNonDuplicate(int[] nums) {
+                int lo = 0;
+                int hi = nums.length - 1;
+                while (lo < hi) {
+                    int mid = lo + (hi - lo) / 2;
+                    if (mid % 2 == 1) mid--;
+                    if (nums[mid] == nums[mid + 1]) {
+                        lo = mid + 2;
+                    } else {
+                        hi = mid;
+                    }
+                }
+                return nums[lo];
+            }
+        }
+        
+278. First Bad Version (Easy)
+
+[Leetcode](https://leetcode-cn.com/problems/first-bad-version/)
+
+        public class Solution extends VersionControl {
+            public int firstBadVersion(int n) {
+                int left = 1, right = n;
+                while (left < right) { // 循环直至区间左右端点相同
+                    int mid = left + (right - left) / 2; // 防止计算时溢出
+                    if (isBadVersion(mid)) {
+                        right = mid; // 答案在区间 [left, mid] 中
+                    } else {
+                        left = mid + 1; // 答案在区间 [mid+1, right] 中
+                    }
+                }
+                // 此时有 left == right，区间缩为一个点，即为答案
+                return left;
+            }
+        }
+
+153. Find Minimum in Rotated Sorted Array (Medium)
+
+
+
+
+
+
 
