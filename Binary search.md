@@ -113,9 +113,26 @@ method 2: only search for even index:
 
 153. Find Minimum in Rotated Sorted Array (Medium)
 
+[Leetcode](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
 
 
 
+                public int findMin(int[] nums) {
+                    int l = 0, h = nums.length - 1;
+                    while (l < h) {
+                        int m = l + (h - l) / 2;
+                        if (nums[m] <= nums[h]) {
+                            h = m;
+                        } else {
+                            l = m + 1;
+                        }
+                    }
+                    return nums[l];
+                }
 
+
+34. Find First and Last Position of Element in Sorted Array
+
+[Leetcode](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 
